@@ -64,7 +64,24 @@
 		cursor:pointer;
 		font-size: 33px;
 	  }
-	  
+	  #legal{
+		margin: 0;
+		text-align: center;
+		font-size: 11px;
+		margin-bottom: 20px;
+		line-height: 2em;
+		padding: 0;
+		display: block;
+		-webkit-margin-before: 1em;
+		-webkit-margin-after: 1em;
+		-webkit-margin-start: 0px;
+		-webkit-margin-end: 0px;
+		color: #757E82;
+		font-family: Tahoma, Geneva, sans-serif;
+	  }
+	  #white {
+		background-color: #ffffff;
+	  }
 	</style>
 
 	
@@ -268,7 +285,10 @@
     <div id="accelerometer">Waiting for accelerometer...</div>
 	</br>
 	<div align="center">
-		<input type=button value =''  name =reset id =reset onClick =izbrano()></br>
+		<input type=button value =''  name =reset id =reset onClick =izbrano()></br></br>
+	</div>
+	<div id="white" name="white" align="center">
+		</br>
 		<div class="poskodbe">
 			<label></label>
 			<select id="poskodbe" name="poskodbe" required >
@@ -280,6 +300,10 @@
 				<option value="0.1">Zelo Veliko</option>
 			</select>
 		</div>
+		</br></br></br></br>
+		<p id="legal" name="legal">
+		Copyright Team [ne:]PREDvidljivi ©2014
+		</p>
 	</div>
   </body>
 </html>
