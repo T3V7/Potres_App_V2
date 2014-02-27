@@ -9,8 +9,18 @@
 	</br>
 	</font>
 	<style>
-	input
-	  {
+	.alert2{
+		background-color: transparent;
+	}
+	.alert {
+	   background: #fff6bf url(exclamation.png) 15px center no-repeat;
+	   text-align: left;
+	   padding: 10px 20px 10px 50px;
+	   border-top: 2px solid #ffd324;
+	   border-bottom: 2px solid #ffd324;
+	}
+
+	input {
 	    height:120px;
 		width:280px;
 		font-size: 50px;
@@ -118,13 +128,27 @@
 
     // API-ji naprave so na voljo
     //
+	function myAlert(text,mode){
+		if (mode == 1){
+			document.getElementById("alert").className = "alert2";
+			document.getElementById("alert").innerHTML = "";
+		}
+		else{
+			document.getElementById("alert").className = "alert";
+			document.getElementById("alert").innerHTML = text;
+		}
+	}
+		myAlert('a', 1);
+	
+	
     function onDeviceReady() {
 		//ozadje je ponovno nastavljeno na rdečo.
 		//zaženemo funkcijo startWatch.
 		//uporabnika seznanimo z pravili uporabe.
 		//
 		document.bgColor= '#FF0000';
-		alert('Napravo položite na ravno ploskev, ki jo lahko trese le gibanje tal. V spodnje polje napišite občutljivost(med 0.01 in 1)');
+		//alert('Napravo položite na ravno ploskev, ki jo lahko trese le gibanje tal. Najboljša bi bila kakšna velika skala, ampak ni važno. Potem pa v spodnje polje vpišite, koliko menite, da je na zgradbi škode.');
+		myAlert('a', 1);
 		startWatch();
 	}
 
@@ -254,16 +278,16 @@
 			else{
 			//če pa je meja prenizka ali previsoka...
 				if(meja < 0.5){
-				alert('Ne vem, če bi bilo dobro imeti lažen alarm zaradi šuma senzorja. Vrednost naj bo med 0.01 in 1g.')
+				myAlert('Prosim, izberite primerno stopnjo poškodbe.', 0)
 				}
 				else{
-				alert('Zakaj bi zaznaval najhujši del potresa osme stopnje po Richterjevi lestvici?! Vrednost naj bo med 0.01 in 1g.')
+				myAlert('Prosim, izberite primerno stopnjo poškodbe.', 0)
 				}
 			}
 		}
 		else{
 		//Če pa občutljivost še ni napisana...
-		alert('Napišite občutljivost v spodnjem polju.')
+		myAlert('Prosim, izberite primerno stopnjo poškodbe.', 0)
 		}
 	}
 	//to se izvede, ko vpišemo vrednost.
@@ -274,12 +298,12 @@
 			meja = vnos*9.81;
 			potresJa = 1;
 			back();
+			myAlert('a', 1)
 		}
 		else {
-			alert('Izberite poškodbe.');
+			myAlert('Prosim, izberite primerno poškodbo zgradbe.', 0);
 		}
 	}
-
     </script>
   </head>
   <body>
@@ -305,6 +329,7 @@
 		<p id="legal" name="legal">
 		Copyright Team [ne:]PREDvidljivi ©2014
 		</p>
+		<p class="alert" id="alert" name="alert" >Napravo položite na ravno ploskev, ki jo lahko trese le gibanje tal. Najboljša bi bila kakšna velika skala, ampak ni važno. Potem pa v spodnje polje vpišite, koliko menite, da je na zgradbi škode.</p>
 	</div>
   </body>
 </html>
